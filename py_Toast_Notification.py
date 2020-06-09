@@ -1,27 +1,25 @@
-# First of all, install the toast notification library this way:
+# Primero, instalamos la libreria de notificaciones toast, de esta forma:
 # python -m pip install win10toast
 
 #----------------------------------------------------------------
 
-# Now we import the toast library and time library
+# Importamos la libreria instalada y la libreria por defecto del tiempo
 from win10toast import ToastNotifier
 import time
 
-# Now we initialize the toaster
+# Iniciamos toaster
 toaster = ToastNotifier()
 
-# Show notifications every certain time
-
-# Declare notification variable time
+# Declaramos una variable con los segundos en los que se repite una notificacion
 timeNotif = 2
 
-# Now we create the notification
-toaster.show_toast("Notification!",  # Title
-                    "This is an alert!!! Wiii!", # Body
+# Creamos la notificacion
+toaster.show_toast("Notification!",  # Titulo
+                    "This is an alert!!! Wiii!", # Mensaje
                     threaded=True,
-                    icon_path=None, # Icon
-                    duration = timeNotif )
+                    icon_path=None, # Icono
+                    duration = timeNotif ) # Llamamos a la variable del tiempo
 
-# Now we hold the notification there
+# Retenmos la notificación haciendola dormir unos segundos(hasta darle click)
 while toaster.notification_active():
     time.sleep(0.3)
